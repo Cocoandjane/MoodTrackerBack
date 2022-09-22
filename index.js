@@ -14,10 +14,10 @@ app.use(express.json())
 const port = 8000
 
 const db = mysql.createConnection({
-    user: MYSQLUSER || 'root',
-    host: MYSQLHOST || 'localhost',
-    password: MYSQLPASSWORD|| 'Feiyang999',
-    database: MYSQLDATABASE || 'mood_me'
+    user: process.env.MYSQLUSER || 'root',
+    host: process.env.MYSQLHOST || 'localhost',
+    password: process.env.MYSQLPASSWORD|| 'Feiyang999',
+    database: process.env.MYSQLDATABASE || 'mood_me'
 })
 
 app.listen(port, () => {
