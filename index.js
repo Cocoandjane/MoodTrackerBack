@@ -20,8 +20,8 @@ const db = mysql.createConnection({
     port: process.env.MYSQLPORT
 })
 
-app.listen(8000, () => {
-    console.log(`listenting on port 8000`)
+app.listen(process.env.MYSQLPORT, () => {
+    console.log(`listenting on port ${process.env.MYSQLPORT}`)
 })
 
 const created = new Date()
