@@ -2,6 +2,8 @@ const express = require("express")
 const mysql = require('mysql2')
 const cors = require('cors')
 const path = require('path')
+const dotenv = require('dotenv')
+dotenv.config()
 
 const app = express()
 
@@ -12,10 +14,10 @@ app.use(express.json())
 const port = 8000
 
 const db = mysql.createConnection({
-    user: 'root',
-    host: 'localhost',
-    password: 'Feiyang999',
-    database: 'mood_me'
+    user: MMYSQL_USER || 'root',
+    host: MYSQLHOST || 'localhost',
+    password: MYSQLPASSWORD|| 'Feiyang999',
+    database: MYSQLDATABASE || 'mood_me'
 })
 
 app.listen(port, () => {
