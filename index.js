@@ -11,7 +11,6 @@ app.use(cors())
 
 app.use(express.json())
 
-const port = 8000
 
 const db = mysql.createConnection({
     user: process.env.MYSQLUSER,
@@ -21,8 +20,8 @@ const db = mysql.createConnection({
     port: process.env.MYSQLPORT
 })
 
-app.listen(port, () => {
-    console.log(`listenting on port ${port}`)
+app.listen(8000, () => {
+    console.log(`listenting on port 8000`)
 })
 
 const created = new Date()
