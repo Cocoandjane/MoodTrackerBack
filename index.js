@@ -32,8 +32,8 @@ app.post('/api/create', (req, res) => {
     const rating = req.body.rating
     db.query('INSERT INTO moods(mood, rating, created) VALUES(?,?,?);',
         [mood, rating, created], (err, result) => {
-            console.log(result)
-            // res.json({ id: result.insertId })
+            // console.log(result)
+            res.json({ id: result.insertId })
         })
 })
 
