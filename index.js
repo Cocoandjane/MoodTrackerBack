@@ -14,7 +14,7 @@ app.use(express.json())
 const port = 8000
 
 const db = mysql.createConnection({
-    user: MMYSQL_USER || 'root',
+    user: MYSQLUSER || 'root',
     host: MYSQLHOST || 'localhost',
     password: MYSQLPASSWORD|| 'Feiyang999',
     database: MYSQLDATABASE || 'mood_me'
