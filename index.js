@@ -17,8 +17,10 @@ const db = mysql.createConnection({
     host: process.env.MYSQLHOST,
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQLDATABASE,
-    port: process.env.MYSQLPORT
 })
+
+
+
 
 const port = process.env.PORT || 8000
 
@@ -33,7 +35,8 @@ app.post('/api/create', (req, res) => {
     const rating = req.body.rating
     db.query('INSERT INTO moods(mood, rating, created) VALUES(?,?,?);',
         [mood, rating, created], (err, result) => {
-            res.json({ id: result.insertId })
+            console.log(result)
+            // res.json({ id: result.insertId })
         })
 })
 
