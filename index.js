@@ -17,10 +17,9 @@ const db = mysql.createConnection({
     host: process.env.MYSQLHOST,
     password: process.env.MYSQLPASSWORD,
     database: process.env.MYSQLDATABASE,
-    port: process.env.MYSQLPORT|| false
+    port: process.env.MYSQLPORT
 })
-
-const port = process.env.PORT || 8000
+const port = process.env.MYSQLPORT || 8000
 
 app.listen(port, () => {
     console.log(`listenting on port ${port}`)
