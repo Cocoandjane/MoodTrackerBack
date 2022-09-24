@@ -25,14 +25,13 @@ app.listen(port, () => {
     console.log(`listenting on port ${port}`)
 })
 
-const created = new Date()
+// const created = new Date()
 app.post('/api/create', (req, res) => {
-    // console.log(req.body)
     const mood = req.body.mood
     const rating = req.body.rating
+    const created = new Date(req.body.created)
     db.query('INSERT INTO moods(mood, rating, created) VALUES(?,?,?);',
         [mood, rating, created], (err, result) => {
-            // console.log(result)
             res.json({ id: result.insertId })
         })
 })
@@ -59,6 +58,7 @@ app.post("/api/edit/:id", (req, res) => {
     const id = req.params.id
     mood = req.body.mood
     rating = req.body.rating
+    created = new Date
     const newMood = req.body.newMood
     const newRating = req.body.newRating
     db.query("UPDATE moods SET mood =?, rating=?, created=? WHERE id = ?;",
